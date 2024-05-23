@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django Template Filters</title>
+    <style>
+        .title{
+            text-align:  center;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="title">Django Template Filters</h1>
+
+    <!-- join filter -->
+    <h2>Join Filter:</h2>
+    <h2>{{lst}}</h2>
+    <h2>{{lst | join:" - "}}</h2>
+
+    <h2>{{fruits}}</h2>
+    <h2>{{fruits | join:" // "}}</h2>
+    <hr>
+
+    <!-- date filter  -->
+    <h2>Date Filter:</h2>
+    <h2>{{date}}</h2>
+    <h2>{{ date | date:"D d M Y" }}</h2>
+    <h2>{{ date | date}}</h2>
+    <h2>{{ date |date:"SHORT_DATE_FORMAT" }}</h2>
+    <hr>
+
+    <!-- Default Filter -->
+    <h2>Default Filter:</h2>
+    <h2>{{str | default:"Empty String" }}</h2>
+    <h2>{{str | default:"This is a Default Value" }}</h2>
+    <hr>
+
+    <!-- Add Filter  -->
+    <h2>Add Filter:</h2>
+    <h2>before: {{number}} <br> Add after 100 : {{ number | add:"100" }}</h2>
+    <hr>
+
+    <!-- capfirst filter  -->
+    <h2>Capfirst Filter:</h2>
+    <h2>{{lst}}</h2>
+    {% for i in lst %}
+    <h2>{{i | capfirst }}</h2>
+    {% endfor %}
+    <hr>
+
+    <!-- cut filter  -->
+    <h2>Cut Filter:</h2>
+    <h2>{{word}}</h2>
+    <h2>{{word | cut:" "}}</h2>
+    <h2>{{word2}}</h2>
+    <h2>{{word2 | cut:"-"}}</h2>
+    <hr>
+
+    <!-- dictsort filter -->
+    <h2>Dictsort Filter:</h2>
+    <h2>{{person}}</h2>
+    <h2>sort by name: {{person | dictsort:"name"}}</h2>
+    <h2>sort by age: {{person | dictsort:"age"}}</h2>
+    <hr>
+
+    <!-- first filter  -->
+    <h2>First Filter:</h2>
+    <h2>{{fruits}}</h2>
+    <h2>{{fruits | first}}</h2>
+    <h2>{{lst}}</h2>
+    <h2>{{lst | first}}</h2>
+    <hr>
+
+    <!-- last filter  -->
+    <h2>Last Filter:</h2>
+    <h2>{{fruits}}</h2>
+    <h2>{{fruits | last}}</h2>
+    <h2>{{lst}}</h2>
+    <h2>{{lst | last}}</h2>
+    <hr>
+
+    <!-- length filter -->
+    <h2>Length Filter:</h2>
+    <h2>{{lst}} => length : {{lst | length}}</h2>
+    <h2>{{fruits}} => length : {{fruits | length}}</h2>
+    <h2>{{word}} => length : {{word | length}}</h2>
+    <hr>
+
+    <!-- lower filter  -->
+    <h2>Lower Filter:</h2>
+    <h2>{{word}}</h2>
+    <h2>{{word | lower}}</h2>
+    <hr>
+
+    <!-- upper filter  -->
+    <h2>Upper Filter:</h2>
+    <h2>{{word2}}</h2>
+    <h2>{{word2 | upper}}</h2>
+    <hr>
+
+    <!-- title filter -->
+    <h2>Title Filter:</h2>
+    <h2>{{title}}</h2>
+    <h2>{{title | title}}</h2>
+    <hr>
+
+    <!-- random filter -->
+    <h2>Random Filter:</h2>
+    <h2>{{fruits}}</h2>
+    <h2>{{fruits | random}}</h2>
+    <hr>
+
+    <!-- slice filter -->
+    <h2>Slice Filter:</h2>
+    <h2>{{lst}}</h2>
+    <h2>{{lst | slice:"1"}}</h2>
+    <h2>{{fruits}}</h2>
+    <h2>{{fruits | slice:"3"}}</h2>
+    <hr>
+
+    <!-- time filter -->
+    <h2>Time Filter:</h2>
+    <h2>{{date | time:"H:i"}}</h2>
+    <h2>{{date | time:"H\h i\m"}}</h2>
+    <hr>
+
+    <!-- Truncatechars Filter -->
+    <h2>Truncatechars Filter:</h2>
+    <h2>{{word}}</h2>
+    <h2>{{word | truncatechars:13}}</h2>
+    <hr>
+
+    <!-- Wordcount Filter -->
+    <h2>Wordcount Filter:</h2>
+    <h2>{{word}}</h2>
+    <h2>{{word | wordcount}}</h2>
+    <h2>{{title}}</h2>
+    <h2>{{title | wordcount}}</h2>
+    <hr>
+
+    <!-- Truncatewords Filter -->
+    <h2>Truncatewords Filter:</h2>
+    <h2>{{word}}</h2>
+    <h2>{{word | truncatewords:2}}</h2>
+    <h2>{{title}}</h2>
+    <h2>{{title | truncatewords:1}}</h2>
+    <hr>
+    
+    <!-- make list filter  -->
+    <h2>Make_list Filter:</h2>
+    <h2>{{name}}</h2>
+    <h2>{{name | make_list}}</h2>
+    <h2>{{title}}</h2>
+    <h2>{{title | make_list}}</h2>
+    <hr>
+
+
+</body>
+</html>
