@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>Admission Form</title>
+{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<form method="post" style="width: 50%; height: 1000px; margin: auto;">
+    {% csrf_token %}
+    <h3 style="text-align: center; margin-top: 5px;">Student Admission Form</h3>
+    {{form | crispy}}
+    <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+{% endblock %}
