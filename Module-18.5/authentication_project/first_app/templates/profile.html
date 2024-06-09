@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>profile</title>
+{% endblock %}
+
+{% block body %}
+
+{% if messages %}
+{% for msg in messages %}
+<h3 class="text-center bg-success mt-2 text-white">{{msg}}</h3>
+{% endfor %}
+{% endif %}
+
+<h1 class="text-center p-3">Welcome to Profile Page</h1>
+<h2 class="text-center">Hello {{user.first_name}} {{user.last_name}}</h2>
+<p class="text-center p-3">
+    <a href="{% url 'ChangePassword_1' %}" class="btn btn-success btn-sm mx-1">Change Password With Old Password</a>
+    <a href="{% url 'ChangePassword_2' %}" class="btn btn-primary btn-sm mx-1">Change Password Without Old Password</a>
+</p>
+{% endblock %}
