@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+<title>Album</title>
+{% endblock %}
+
+{% block body %}
+<form method="post" style="width: 50%; margin: auto;" class="mt-4">
+    <h2>Let's add a new Album</h2>
+    {% csrf_token %}
+    {{form | crispy}}
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}
