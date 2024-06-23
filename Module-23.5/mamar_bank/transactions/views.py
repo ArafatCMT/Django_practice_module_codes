@@ -78,15 +78,6 @@ class DepositMoneyView(TransactionCreateMixin):
             self.request,
             f'{"{:,.2f}".format(float(amount))}$ was deposited to your account successfully'
         )
-        # email_subject = "Deposit Message"
-        # message = render_to_string('transactions/deposit_email.html', {
-        #     'user': self.request.user,
-        #     'amount': amount,
-        # })
-        # to_email = self.request.user.email
-        # email = EmailMultiAlternatives(email_subject, '', to=[to_email])
-        # email.attach_alternative(message, 'text/html')
-        # email.send()
         send_transaction_email(self.request.user, amount, 'Deposit Message', 'transactions/deposit_email.html')
         return super().form_valid(form)
 
@@ -133,7 +124,7 @@ class LoanRequestView(TransactionCreateMixin):
             self.request,
             f'Loan request for {"{:,.2f}".format(float(amount))}$ submitted successfully'
         )
-
+        send_transaction_email(self.request.user, amount, 'Loan Request Message', 'transactions/loan_request_email.html')
         return super().form_valid(form)
     
 class TransactionReportView(LoginRequiredMixin, ListView):
@@ -246,6 +237,8 @@ def TransferMoneyView(request):
                         update_fields=['balance']
                     )
                     messages.success(request, 'amount transfer successfully')
+                    send_transaction_email(request.user, amount, 'Transaction Messages', 'transactions/transaction_email_1.html')
+                    send_transaction_email(receiver_account.user, amount, 'Transaction Messages', 'transactions/transaction_email_2.html')
                     return redirect('transfer')
                     
             else:
