@@ -40,7 +40,8 @@ class WithdrawForm(TransactionForm):
         max_withdraw_amount = 20000
         balance = account.balance # 1000
         amount = self.cleaned_data.get('amount')
-        if account.bankrupt.bankrupt is True:
+        
+        if account.bankrupt:
             raise forms.ValidationError(
                 f'Bank is Bankrupt'
             )
